@@ -1,0 +1,102 @@
+MainActivity.kt
+
+
+
+package com.example.womenoffers
+
+import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.womenoffers.R
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var offersAdapter: OffersAdapter
+    private lateinit var etSearch: EditText
+    private val offersList = mutableListOf(
+        "GOVT. SCHEMES: ",
+        "Beti Bachao Beti Padhao: This scheme aims to promote the education of girls and improve the efficiency of welfare services intended for girls.",
+        "Pradhan Mantri Matru Vandana Yojana: A maternity benefit program that provides partial compensation for wage loss in terms of cash incentives so that the woman can take adequate rest before and after delivery.",
+        "Mahila E-Haat: An initiative for meeting aspirations and needs of women entrepreneurs by providing an e-marketing platform to showcase their products/services.",
+        "One Stop Centre Scheme: Also known as Sakhi, it aims to provide support and assistance to women affected by violence, both in private and public spaces.",
+        "Swadhar Greh: The scheme targets women in difficult circumstances, such as destitute widows, women prisoners released from jail, and women survivors of natural disasters.",
+        "SHOP OFFERS: ",
+        "Nykaa Women's Day Sale: Nykaa offers discounts on beauty and wellness products exclusively for women during Women's Day.",
+        "Tanishq Bridal Jewellery Offer: Tanishq offers special discounts on bridal jewellery collections for women.",
+        "Zivame Lingerie Sale: Zivame provides discounts on a wide range of lingerie and activewear products for women.",
+        "Amazon Fashion Deals: Amazon India offers exclusive fashion deals for women, including discounts on clothing, accessories, and footwear.",
+        "H&M Women's Collection Sale: H&M offers seasonal sales on women's clothing, providing discounts on a variety of fashion items."
+    )
+    private val filteredOffersList = mutableListOf<String>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        recyclerView = findViewById(R.id.recyclerView)
+        etSearch = findViewById(R.id.etSearch)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        filteredOffersList.addAll(offersList)
+        offersAdapter = OffersAdapter(filteredOffersList)
+        recyclerView.adapter = offersAdapter
+
+        etSearch.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                filterOffers(s.toString())
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+    }
+
+    private fun filterOffers(query: String) {
+        filteredOffersList.clear()
+        if (query.isEmpty()) {
+            filteredOffersList.addAll(offersList)
+        } else {
+            for (offer in offersList) {
+                if (offer.contains(query, ignoreCase = true)) {
+                    filteredOffersList.add(offer)
+                }
+            }
+        }
+        offersAdapter.notifyDataSetChanged()
+    }
+}
+
+
+
+*********************OffersAdapter.kt********************
+
+package com.example.womenoffers
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+
+class OffersAdapter(private val offersList: List<String>) : RecyclerView.Adapter<OffersAdapter.OfferViewHolder>() {
+
+    class OfferViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val offerTextView: TextView = itemView.findViewById(R.id.offerTextView)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfferViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.offer_item, parent, false)
+        return OfferViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: OfferViewHolder, position: Int) {
+        holder.offerTextView.text = offersList[position]
+    }
+
+    override fun getItemCount() = offersList.size
+}
+

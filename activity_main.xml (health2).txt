@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- BMI Calculator -->
+        <TextView
+            android:id="@+id/tvBmiTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI Calculator"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:hint="Enter height (cm)"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter weight (kg)"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnCalculateBmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculate BMI"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvBmiResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI: "
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Drink Water Notification -->
+        <TextView
+            android:id="@+id/tvDrinkWater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drink Water Reminder"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Switch
+            android:id="@+id/switchDrinkWater"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Enable Reminder"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Fitness and Diet Plans -->
+        <TextView
+            android:id="@+id/tvFitnessDiet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fitness and Diet Plans"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupDietPlans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbPaleo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paleo" />
+
+            <RadioButton
+                android:id="@+id/rbKeto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keto" />
+
+            <RadioButton
+                android:id="@+id/rbLowCarb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Low-Carb Diet" />
+
+            <RadioButton
+                android:id="@+id/rbWhole30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Whole30" />
+
+            <RadioButton
+                android:id="@+id/rbVegan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegan Diet" />
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/ivDietPlan"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Period Tracker -->
+        <TextView
+            android:id="@+id/tvPeriodTracker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Period Tracker"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etPeriodStartDate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter start date (yyyy-mm-dd)"
+            android:inputType="none"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etPeriodDuration"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter duration (days)"
+            android:inputType="number"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnPredictPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Predict Next Period"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvNextPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next Period: "
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Sleep Tracker -->
+        <TextView
+            android:id="@+id/tvSleepTracker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sleep Tracker"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etSleepStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter sleep start time (HH:mm AM/PM)"
+            android:inputType="none"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etSleepEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter sleep end time (HH:mm AM/PM)"
+            android:inputType="none"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnTrackSleep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track Sleep"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvSleepDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sleep Duration: "
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvSleepMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Mental Health Tips -->
+        <TextView
+            android:id="@+id/tvMentalHealthTips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mental Health Tips"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnGetTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Tip"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvMentalHealthTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Social Sharing -->
+        <TextView
+            android:id="@+id/tvSocialSharing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Social Sharing"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnShareAchievement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share Achievement"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
+*******************Strings.xml**************
+
+
+<resources>
+    <string name="app_name">Health2</string>
+    <string name="enter_height_cm">Enter height (cm)</string>
+    <string name="enter_weight_kg">Enter weight (kg)</string>
+    <string name="calculate_bmi">Calculate BMI</string>
+    <string name="bmi_result">BMI: </string>
+    <string name="drink_water_reminder">Drink Water Reminder</string>
+    <string name="enable_reminder">Enable Reminder</string>
+    <string name="fitness_and_diet_plans">Fitness and Diet Plans</string>
+    <string name="paleo">Paleo</string>
+    <string name="keto">Keto</string>
+    <string name="low_carb_diet">Low-Carb Diet</string>
+    <string name="whole30">Whole30</string>
+    <string name="vegan_diet">Vegan Diet</string>
+    <string name="period_tracker">Period Tracker</string>
+    <string name="enter_start_date_yyyy_mm_dd">Enter start date (yyyy-mm-dd)</string>
+    <string name="enter_duration_days">Enter duration (days)</string>
+    <string name="predict_next_period">Predict Next Period</string>
+    <string name="next_period">Next Period: </string>
+    <string name="sleep_tracker">Sleep Tracker</string>
+    <string name="enter_sleep_start_time">Enter sleep start time (HH:mm)</string>
+    <string name="enter_sleep_end_time">Enter sleep end time (HH:mm)</string>
+    <string name="track_sleep">Track Sleep</string>
+    <string name="mental_health_tips">Mental Health Tips</string>
+    <string name="get_tip">Get Tip</string>
+    <string name="social_sharing">Social Sharing</string>
+    <string name="share_achievement">Share Achievement</string>
+</resources>
+
+
+
+
+
+**********AndroidManifest.xml*************
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.health2">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Health2">
+
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".DrinkWaterReceiver" android:exported="true" />
+
+
+    </application>
+
+    <!-- Permissions for Internet and BroadcastReceiver -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+</manifest>
